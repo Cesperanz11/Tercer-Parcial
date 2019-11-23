@@ -1,0 +1,70 @@
+
+<% include partials/_header %>
+
+    <nav class= "navbar navbar-dark bg-dark mb-4" >
+        <a href="/" class="navbar-brand">CRUD PARCIAL</a>
+
+    </nav>
+
+    <div class="container">
+    <div class="row">
+
+        <div class="col-md-5">
+            <div class="card">
+            <div class="card-body">
+                <form action="/add" method="POST">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                                <input type="text" name="nombre" placeholder="Inserte nombre de carrera" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                    <label for="facu">Facultad:</label>
+                                    <input type="text" name="facultad" placeholder="Ingenieria, Humanistica, Medicina, etc" class="form-control">
+                                </div>   
+                            <div class="form-group">
+                                    <label for="uni">Universidad:</label>
+                                    <input type="text" name="universidad" placeholder="Universidad Equis" class="form-control">
+                                </div>
+                            <div class="form-group">
+                                    <label for="plan">Plan de Estudio:</label>
+                                    <input type="text" name="plan" placeholder="2018, 2019, etc" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary brn-block">Agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div><p>                                       </p></div>
+        <div class="col-md-7"></div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Nombre</th>
+                    <th>Facultad</th>
+                    <th>Universidad</th>
+                    <th>Plan de Estudio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <% for(var i=0; i<tasks.length; i++) {%>
+                            <tr>
+                                <td><%= i + 1%></td>
+                                <td><%= tasks[i].nombre %></td>
+                                <td><%= tasks[i].universidad %></td>
+                                <td><%= tasks[i].facultad %></td>
+                                <td><%= tasks[i].plan %></td>
+                                <td>
+                                    <a href="/update/<%= tasks[i]._id %>" class="btn btn-info">Update</a>
+                                    <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            
+                            <%}%>
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+    <% include partials/_footer %>

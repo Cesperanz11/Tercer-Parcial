@@ -1,0 +1,30 @@
+<% include partials/_header %>
+            <div class="container">
+                    <div class="col-md-5 offset-md-3">
+                            <div class="card">
+                            <div class="card-body">
+                                <form action="/update/<%= task._id %>" method="POST">
+                                        <div class="form-group">
+                                            <label for="nombre">Nombre:</label>
+                                                <input type="text" name="nombre" placeholder="Inserte nombre de carrera" class="form-control" value="<%= task.nombre %>">
+                                            </div>
+                                            <div class="form-group">
+                                                    <label for="facu">Facultad:</label>
+                                                    <input type="text" name="facultad" placeholder="Ingenieria, Humanistica, Medicina, etc" class="form-control" value="<%= task.facultad %>">
+                                                </div>   
+                                            <div class="form-group">
+                                                    <label for="uni">Universidad:</label>
+                                                    <input type="text" name="universidad" placeholder="Universidad Equis" class="form-control" value="<%= task.universidad %>">
+                                                </div>
+                                            <div class="form-group">
+                                                    <label for="plan">Plan de Estudio:</label>
+                                                    <input type="text" name="plan" placeholder="2018, 2019, etc" class="form-control" value="<%= task.plan %>">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary brn-block">Update</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+            
+            </div>
+    <% include partials/_footer %>
